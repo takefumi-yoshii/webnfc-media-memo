@@ -45,6 +45,7 @@ function writeNDEFMessage(
 //
 function* watchPermissionChange(store: Store<StoreState>) {
   while (true) {
+    yield take(PermissionStateTypes.SET_PERMISSION_STATE)
     const { PermissionState, NFC }: StoreState = yield select()
     if (PermissionState.nfc !== 'denied') {
       if (PermissionState.nfc === 'prompt') {
