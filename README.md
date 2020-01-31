@@ -15,3 +15,8 @@ can be saved. Media data can only be played with this application.
 You can browse the notes you wrote. Text memos are recorded on NFC tags
 and can be shared with other devices. Media data is recorded on your
 device and cannot be shared with other devices.
+
+
+## Intro Video
+
+https://vimeo.com/388157513
