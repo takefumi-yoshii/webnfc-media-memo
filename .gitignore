@@ -1,0 +1,6 @@
+*.log
+*.psd
+*.env.*
+.cache
+node_modules
+dist

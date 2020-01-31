@@ -1,0 +1,44 @@
+{
+  "name": "webnfc-media-memo",
+  "version": "1.0.0",
+  "author": "Takepepe",
+  "license": "MIT",
+  "description": "Trial application with experimental feature Web NFC.",
+  "scripts": {
+    "dev": "parcel src/index.html watch",
+    "build": "parcel build src/index.html",
+    "prettier": "prettier \"src/**/*.{ts,tsx}\" --write"
+  },
+  "dependencies": {
+    "connected-react-router": "^6.6.1",
+    "history": "^4.10.1",
+    "localforage": "^1.7.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-redux": "^7.1.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-saga": "^1.1.3",
+    "reselect": "^4.0.0",
+    "styled-components": "^5.0.0",
+    "styled-reset": "^4.0.9"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/redux": "^3.6.0",
+    "@types/redux-saga": "^0.10.5",
+    "@types/styled-components": "^4.4.2",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.4"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}

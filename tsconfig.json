@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs", 
+    "strict": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": [
+      "webworker",
+      "dom",
+      "es5",
+      "esnext",
+      "scripthost"
+    ]
+  }
+}
