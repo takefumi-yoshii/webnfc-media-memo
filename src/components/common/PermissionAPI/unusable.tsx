@@ -9,7 +9,7 @@ type Props = {
 //
 const Component: React.FC<Props> = props => (
   <div className={props.className}>
-    <h2 className="title">Permission API is not ab</h2>
+    <h2 className="title">Not available Permission API.</h2>
   </div>
 )
 // ______________________________________________________

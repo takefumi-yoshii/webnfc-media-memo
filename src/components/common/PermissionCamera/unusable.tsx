@@ -9,7 +9,7 @@ type Props = {
 //
 const Component: React.FC<Props> = props => (
   <div className={props.className}>
-    <h2 className="title">Not available Web NFC.</h2>
+    <h2 className="title">Not available Camera.</h2>
   </div>
 )
 // ______________________________________________________
