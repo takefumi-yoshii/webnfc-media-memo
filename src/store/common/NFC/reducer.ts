@@ -32,9 +32,9 @@ export default (initialState = stateFactory()): Reducer<State, Actions> => (
 ): State => {
   switch (action.type) {
     case types.INIT_NFC_READER:
-      return { ...state, reader: new window.NDEFReader() }
+      return { ...state, reader: new NDEFReader() }
     case types.INIT_NFC_WRITER:
-      return { ...state, writer: new window.NDEFWriter() }
+      return { ...state, writer: new NDEFWriter() }
     case types.SET_IS_WRITING:
       return { ...state, isWriting: action.payload.flag }
     case types.ON_READING_EVENT:

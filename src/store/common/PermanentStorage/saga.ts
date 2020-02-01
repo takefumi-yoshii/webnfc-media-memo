@@ -5,10 +5,13 @@ import types from './types'
 import * as creators from './creators'
 // ______________________________________________________
 //
-function getItem(localforageStore: typeof localforage, id: string) {
+type Localforage = typeof localforage
+// ______________________________________________________
+//
+function getItem(localforageStore: Localforage, id: string) {
   return localforageStore.getItem(id)
 }
-function* watchRequestGET(localforageStore: any) {
+function* watchRequestGET(localforageStore: Localforage) {
   while (true) {
     const action: ReturnType<typeof creators.requestGet> = yield take(
       types.REQUEST_GET
@@ -24,10 +27,10 @@ function* watchRequestGET(localforageStore: any) {
 }
 // ______________________________________________________
 //
-function putItem(localforageStore: any, record: Record) {
+function putItem(localforageStore: Localforage, record: Record) {
   return localforageStore.setItem(record.id, record.blob)
 }
-function* watchRequestPUT(localforageStore: any) {
+function* watchRequestPUT(localforageStore: Localforage) {
   while (true) {
     const action: ReturnType<typeof creators.requestPut> = yield take(
       types.REQUEST_PUT

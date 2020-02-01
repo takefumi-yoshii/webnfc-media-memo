@@ -7,10 +7,10 @@ function checkLoaded() {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
           .register('../../../sw.ts')
-          .then((res: any) => {
+          .then(res => {
             resolve(res)
           })
-          .catch((err: any) => {
+          .catch(err => {
             reject(err)
           })
       }

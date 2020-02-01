@@ -1,19 +1,19 @@
 declare global {
   interface Window {
-    NDEFReader: any
-    NDEFWriter: any
-    MediaRecorder: MediaRecorder
-    chooseFileSystemEntries: any
+    NDEFReader: NDEFReader
+    NDEFWriter: NDEFWriter
   }
+  // ______________________________________________________
+  //
   type RecordingState = 'inactive' | 'recording' | 'paused'
   class MediaRecorder {
     constructor(stream: MediaStream, options?: MediaRecorderOptions)
     pause: Function
     requestData: Function
     resume: () => void
-    start: Function
-    stop: Function
-    ondataavailable: Function
+    start: () => void
+    stop: () => void
+    ondataavailable: (event: { data: BlobPart }) => void
     onerror: Function
     onpause: Function
     onresume: Function
@@ -27,18 +27,20 @@ declare global {
     videoBitsPerSecond?: number
     bitsPerSecond?: number
   }
+  // ______________________________________________________
+  //
   interface NDEFScanOptions {
     id?: string
     recordType?: string
     mediaType?: string
     signal?: any
   }
-  interface NDEFReader {
+  class NDEFReader {
     scan: (options?: NDEFScanOptions) => Promise<any>
     onerror: (error: any) => void
     onreading: (event: NDEFReadingEvent) => void
   }
-  interface NDEFWriter {
+  class NDEFWriter {
     write: (message: NDEFMEssage) => Promise<any>
   }
   interface NDEFMEssage {
@@ -70,6 +72,8 @@ declare global {
   interface NDEFPermissionDescriptor {
     name: 'nfc'
   }
+  // ______________________________________________________
+  //
   type PermissionsDescriptor =
     | PermissionDescriptor
     | DevicePermissionDescriptor

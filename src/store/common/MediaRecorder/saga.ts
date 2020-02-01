@@ -22,7 +22,7 @@ function* setupMediaRecorder(store: Store<StoreState>) {
     mediaRecorder.onstop = () => {
       store.dispatch(creators.onStopRecording())
     }
-    mediaRecorder.ondataavailable = (event: any) => {
+    mediaRecorder.ondataavailable = event => {
       const blob = new Blob([event.data], { type: 'video/webm' })
       store.dispatch(creators.onDataAvailable(blob))
     }
