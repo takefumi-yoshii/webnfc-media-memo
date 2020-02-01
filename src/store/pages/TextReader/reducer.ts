@@ -1,7 +1,7 @@
 import { Reducer } from 'redux'
 import { LOCATION_CHANGE } from 'connected-react-router'
 import { Actions } from '../../actions'
-import { locationDisposer } from '../utils'
+import { handleLocationChange } from '../utils'
 import NFCTypes from '../../common/NFC/types'
 import { joinRecordsMessage } from './processors'
 // ______________________________________________________
@@ -26,7 +26,7 @@ export default (injects?: Partial<State>): Reducer<State, Actions> => (
   action
 ): State => {
   if (action.type === LOCATION_CHANGE) {
-    return locationDisposer(state, action, state.pathname, () =>
+    return handleLocationChange(state, action, state.pathname, () =>
       stateFactory(injects)
     )
   }

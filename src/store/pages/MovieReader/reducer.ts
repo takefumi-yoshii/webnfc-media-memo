@@ -1,7 +1,7 @@
 import { Reducer } from 'redux'
 import { LOCATION_CHANGE } from 'connected-react-router'
 import { Actions } from '../../actions'
-import { locationDisposer } from '../utils'
+import { handleLocationChange } from '../utils'
 import PermanentStorageTypes from '../../common/PermanentStorage/types'
 import types from './types'
 // ______________________________________________________
@@ -31,7 +31,7 @@ const getMessage = (mode: Mode) => {
   if (mode === 'playing') return 'Playing...'
   return 'Touch NFC Tag.'
 }
-const getStateByMode = (state: State, mode: Mode) => {
+const handleStateByMode = (state: State, mode: Mode) => {
   return { ...state, mode, message: getMessage(mode) }
 }
 // ______________________________________________________
@@ -41,14 +41,14 @@ export default (injects?: Partial<State>): Reducer<State, Actions> => (
   action
 ): State => {
   if (action.type === LOCATION_CHANGE) {
-    return locationDisposer(state, action, state.pathname, () =>
+    return handleLocationChange(state, action, state.pathname, () =>
       stateFactory(injects)
     )
   }
   if (!state.located) return state
   switch (action.type) {
     case types.SET_MODE:
-      return getStateByMode(state, action.payload.mode)
+      return handleStateByMode(state, action.payload.mode)
     case PermanentStorageTypes.ON_SUCCESS_GET:
       return { ...state, blob: action.payload.record.blob }
     case PermanentStorageTypes.ON_FAILED_GET:

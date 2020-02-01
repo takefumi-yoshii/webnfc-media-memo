@@ -1,7 +1,7 @@
 import { Reducer } from 'redux'
 import { LOCATION_CHANGE } from 'connected-react-router'
 import { Actions } from '../../actions'
-import { locationDisposer } from '../utils'
+import { handleLocationChange } from '../utils'
 // ______________________________________________________
 //
 type State = {
@@ -23,7 +23,7 @@ export default (injects?: Partial<State>): Reducer<State, Actions> => (
 ): State => {
   switch (action.type) {
     case LOCATION_CHANGE:
-      return locationDisposer(state, action, state.pathname, () =>
+      return handleLocationChange(state, action, state.pathname, () =>
         stateFactory(injects)
       )
     default:

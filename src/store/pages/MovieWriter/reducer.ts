@@ -1,7 +1,7 @@
 import { Reducer } from 'redux'
 import { LOCATION_CHANGE } from 'connected-react-router'
 import { Actions } from '../../actions'
-import { locationDisposer } from '../utils'
+import { handleLocationChange } from '../utils'
 import PermanentStorageTypes from '../../common/PermanentStorage/types'
 import MediaRecorderTypes from '../../common/MediaRecorder/types'
 import types from './types'
@@ -33,7 +33,7 @@ const getMessage = (mode: Mode) => {
   if (mode === 'writing') return 'Touch NFC Tag.'
   return 'Tap Icon & REC'
 }
-const getStateByMode = (state: State, mode: Mode) => {
+const handleStateByMode = (state: State, mode: Mode) => {
   return { ...state, mode, message: getMessage(mode) }
 }
 // ______________________________________________________
@@ -43,18 +43,18 @@ export default (injects?: Partial<State>): Reducer<State, Actions> => (
   action
 ): State => {
   if (action.type === LOCATION_CHANGE) {
-    return locationDisposer(state, action, state.pathname, () =>
+    return handleLocationChange(state, action, state.pathname, () =>
       stateFactory(injects)
     )
   }
   if (!state.located) return state
   switch (action.type) {
     case types.SET_MODE:
-      return getStateByMode(state, action.payload.mode)
+      return handleStateByMode(state, action.payload.mode)
     case PermanentStorageTypes.ON_SUCCESS_PUT:
-      return getStateByMode(state, 'ready')
+      return handleStateByMode(state, 'ready')
     case MediaRecorderTypes.ON_START_RECORDING:
-      return getStateByMode(state, 'recording')
+      return handleStateByMode(state, 'recording')
     case MediaRecorderTypes.ON_DATA_AVAILABLE:
       return { ...state, blob: action.payload.blob }
     default:

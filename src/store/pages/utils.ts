@@ -5,7 +5,7 @@ import { StoreState } from '../'
 //
 // @ reducer
 //
-export function locationDisposer<
+export function handleLocationChange<
   S extends { located: boolean },
   A extends LocationChangeAction,
   R extends string
