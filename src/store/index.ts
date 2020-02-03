@@ -1,5 +1,5 @@
 import 'react-redux'
-import { Dispatch } from 'redux'
+import { Store, Dispatch } from 'redux'
 import { storeFactory } from './storeFactory'
 import { StoreState } from './reducers'
 import { Actions } from './actions'
@@ -12,6 +12,7 @@ declare module 'react-redux' {
     equalityFn?: (left: R, right: R) => boolean
   ): R
   export function useDispatch<TDispatch = Dispatch<Actions>>(): TDispatch
+  export function useStore<S = StoreState>(): Store<S, Actions>;
 }
 // ______________________________________________________
 //
