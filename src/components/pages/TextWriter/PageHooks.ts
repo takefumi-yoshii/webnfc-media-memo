@@ -1,16 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { StoreState, Dispatcher } from '../../../store'
 import { writeNfcData } from '../../../store/common/NFC/creators'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const updatedAt = useSelector<StoreState, StoreState['NFC']['updatedAt']>(
-    state => state.NFC.updatedAt
-  )
-  const isWriting = useSelector<StoreState, StoreState['NFC']['isWriting']>(
-    state => state.NFC.isWriting
-  )
+  const updatedAt = useSelector(state => state.NFC.updatedAt)
+  const isWriting = useSelector(state => state.NFC.isWriting)
   const [inputValue, setValue] = React.useState('')
   const [isEditing, setIsEditing] = React.useState(false)
   const message = React.useMemo(() => {
@@ -18,7 +13,7 @@ const PageHooks = () => {
     return isEditing ? 'Input Text.' : 'Tap Pencil Icon.'
   }, [isWriting, isEditing])
 
-  const dispatch = useDispatch<Dispatcher>()
+  const dispatch = useDispatch()
   const handleClickIcon = React.useCallback(() => {
     setIsEditing(true)
   }, [isEditing])

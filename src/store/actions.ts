@@ -1,3 +1,4 @@
+import 'react-redux'
 import { Dispatch } from 'redux'
 import { LocationChangeAction } from 'connected-react-router'
 import * as PermanentStorage from './common/PermanentStorage/creators'
@@ -31,3 +32,8 @@ export type Actions =
   | C2A<typeof MovieWriter>
 
 export type Dispatcher = Dispatch<Actions>
+// ______________________________________________________
+//
+declare module 'react-redux' {
+  export function useDispatch<TDispatch = Dispatch<Actions>>(): TDispatch
+}

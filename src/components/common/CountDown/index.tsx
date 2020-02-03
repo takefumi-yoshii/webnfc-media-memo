@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { StoreState } from '../../../store'
 // ______________________________________________________
 //
 type Props = {
@@ -31,10 +30,7 @@ const StyledComponent = styled(Component)`
 // ______________________________________________________
 //
 const Container: React.FC<ContainerProps> = props => {
-  const countDown = useSelector<
-    StoreState,
-    StoreState['MediaRecorder']['countDown']
-  >(state => state.MediaRecorder.countDown)
+  const countDown = useSelector(state => state.MediaRecorder.countDown)
   return <StyledComponent {...props} countDown={countDown} />
 }
 // ______________________________________________________

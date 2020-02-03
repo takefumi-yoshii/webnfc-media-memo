@@ -42,7 +42,7 @@ const StyledComponent = styled(Component)`
 // ______________________________________________________
 //
 const Container: React.FC = () => {
-  const dispatch = useDispatch<Dispatcher>()
+  const dispatch = useDispatch()
   const handlePushButton = React.useCallback(() => {
     dispatch(resolvePermission({ name: 'nfc' }))
   }, [])

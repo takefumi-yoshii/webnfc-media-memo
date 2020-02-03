@@ -1,21 +1,14 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { StoreState, Dispatcher } from '../../../store'
 import { setMode } from '../../../store/pages/MovieReader/creators'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const mode = useSelector<StoreState, StoreState['MovieReader']['mode']>(
-    state => state.MovieReader.mode
-  )
-  const blob = useSelector<StoreState, StoreState['MovieReader']['blob']>(
-    state => state.MovieReader.blob
-  )
-  const message = useSelector<StoreState, StoreState['MovieReader']['message']>(
-    state => state.MovieReader.message
-  )
+  const mode = useSelector(state => state.MovieReader.mode)
+  const blob = useSelector(state => state.MovieReader.blob)
+  const message = useSelector(state => state.MovieReader.message)
   const videoRef = React.useRef<HTMLVideoElement | null>(null)
-  const dispatch = useDispatch<Dispatcher>()
+  const dispatch = useDispatch()
   const handlePlay = React.useCallback(() => {
     dispatch(setMode('playing'))
   }, [])

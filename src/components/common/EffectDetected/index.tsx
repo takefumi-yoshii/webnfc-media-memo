@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { StoreState } from '../../../store'
 import Body from './body'
 // ______________________________________________________
 //
@@ -30,9 +29,7 @@ const StyledComponent = styled(Component)`
 // ______________________________________________________
 //
 const Container: React.FC<ContainerProps> = props => {
-  const updatedAt = useSelector<StoreState, StoreState['NFC']['updatedAt']>(
-    state => state.NFC.updatedAt
-  )
+  const updatedAt = useSelector(state => state.NFC.updatedAt)
   return <StyledComponent {...props} updatedAt={updatedAt} />
 }
 // ______________________________________________________

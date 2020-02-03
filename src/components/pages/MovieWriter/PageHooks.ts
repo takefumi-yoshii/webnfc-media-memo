@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { StoreState, Dispatcher } from '../../../store'
 import {
   startRecording,
   stopRecording
@@ -9,20 +8,14 @@ import { setMode } from '../../../store/pages/MovieWriter/creators'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const mode = useSelector<StoreState, StoreState['MovieWriter']['mode']>(
-    state => state.MovieWriter.mode
-  )
-  const stream = useSelector<StoreState, StoreState['MediaRecorder']['stream']>(
-    state => state.MediaRecorder.stream
-  )
-  const message = useSelector<StoreState, StoreState['MovieWriter']['message']>(
-    state => state.MovieWriter.message
-  )
+  const mode = useSelector(state => state.MovieWriter.mode)
+  const stream = useSelector(state => state.MediaRecorder.stream)
+  const message = useSelector(state => state.MovieWriter.message)
   const isShowVideo = React.useMemo(() => {
     return mode === 'countdown' || mode === 'recording'
   }, [mode])
   const videoRef = React.useRef<HTMLVideoElement | null>(null)
-  const dispatch = useDispatch<Dispatcher>()
+  const dispatch = useDispatch()
   const handleClickCenter = React.useCallback(() => {
     switch (mode) {
       case 'ready':

@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { StoreState, Dispatcher } from '../../../store'
 import {
   startRecording,
   stopRecording
@@ -9,13 +8,9 @@ import { setMode } from '../../../store/pages/VoiceWriter/creators'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const mode = useSelector<StoreState, StoreState['VoiceWriter']['mode']>(
-    state => state.VoiceWriter.mode
-  )
-  const message = useSelector<StoreState, StoreState['VoiceWriter']['message']>(
-    state => state.VoiceWriter.message
-  )
-  const dispatch = useDispatch<Dispatcher>()
+  const mode = useSelector(state => state.VoiceWriter.mode)
+  const message = useSelector(state => state.VoiceWriter.message)
+  const dispatch = useDispatch()
   const handleClickIcon = React.useCallback(() => {
     switch (mode) {
       case 'ready':

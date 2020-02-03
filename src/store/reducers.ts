@@ -1,3 +1,4 @@
+import 'react-redux'
 import { Reducer } from 'redux'
 import { History } from 'history'
 import { connectRouter } from 'connected-react-router'
@@ -43,3 +44,12 @@ export const reducersFactory = (history: History<History.PoorMansUnknown>) => ({
   ...commonReducersFactory(history),
   ...pageReducersFactory()
 })
+// ______________________________________________________
+//
+declare module 'react-redux' {
+  type SelectorFunction = (state: StoreState) => unknown
+  export function useSelector<S extends SelectorFunction, R = ReturnType<S>>(
+    selector: (state: StoreState) => R,
+    equalityFn?: (left: R, right: R) => boolean
+  ): R
+}
