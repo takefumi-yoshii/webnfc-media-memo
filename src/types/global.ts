@@ -1,10 +1,4 @@
 declare global {
-  interface Window {
-    NDEFReader: NDEFReader
-    NDEFWriter: NDEFWriter
-  }
-  // ______________________________________________________
-  //
   type RecordingState = 'inactive' | 'recording' | 'paused'
   class MediaRecorder {
     constructor(stream: MediaStream, options?: MediaRecorderOptions)
@@ -26,38 +20,6 @@ declare global {
     audioBitsPerSecond?: number
     videoBitsPerSecond?: number
     bitsPerSecond?: number
-  }
-  // ______________________________________________________
-  //
-  interface NDEFScanOptions {
-    id?: string
-    recordType?: string
-    mediaType?: string
-    signal?: any
-  }
-  class NDEFReader {
-    scan: (options?: NDEFScanOptions) => Promise<any>
-    onerror: (error: any) => void
-    onreading: (event: NDEFReadingEvent) => void
-  }
-  class NDEFWriter {
-    write: (message: NDEFMEssage) => Promise<any>
-  }
-  interface NDEFMEssage {
-    records: (NDEFRecord | NDEFRecordInput)[]
-  }
-  interface NDEFReadingEvent extends Event {
-    serialNumber: string
-    message: NDEFMEssage
-  }
-  interface NDEFRecord {
-    recordType: string
-    mediaType?: string
-    id?: string
-    data?: ArrayBufferView | ArrayBuffer
-    encoding?: string
-    lang?: string
-    toRecords?: Function
   }
   interface NDEFRecordInput {
     recordType: string
