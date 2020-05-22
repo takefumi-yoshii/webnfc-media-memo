@@ -24,7 +24,7 @@ function* watchRequestPermission(store: Store<StoreState>) {
         types.REQUEST_PERMISSION
       )
       const {
-        PermissionState: { enabeledPermissionAPI }
+        PermissionState: { enabeledPermissionAPI },
       }: StoreState = yield select()
       if (!enabeledPermissionAPI) break
       const { permissionDesc } = action.payload
@@ -36,14 +36,14 @@ function* watchRequestPermission(store: Store<StoreState>) {
       yield put(
         creators.setPermissionState({
           name,
-          state: status.state
+          state: status.state,
         })
       )
       status.onchange = () => {
         store.dispatch(
           creators.setPermissionState({
             name,
-            state: status.state
+            state: status.state,
           })
         )
       }
@@ -56,7 +56,7 @@ function* watchRequestPermission(store: Store<StoreState>) {
 }
 // ______________________________________________________
 //
-export default function*(store: Store<StoreState>) {
+export default function* (store: Store<StoreState>) {
   yield fork(checkPermissionAPI)
   yield fork(watchRequestPermission, store)
 }

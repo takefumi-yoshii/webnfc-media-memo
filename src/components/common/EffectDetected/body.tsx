@@ -11,7 +11,7 @@ type Props = {
 } & ContainerProps
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <div className={props.className}></div>
 )
 // ______________________________________________________
@@ -22,14 +22,14 @@ const StyledComponent = styled(Component)`
   border-radius: 100px;
   background-color: #fff;
   transition-property: opacity transform;
-  transition-duration: ${props => (props.mounted ? `0.4s` : `0s`)};
-  transform: ${props => (props.mounted ? `scale(2)` : `scale(1)`)};
-  opacity: ${props => (props.mounted ? 0 : 1)};
+  transition-duration: ${(props) => (props.mounted ? `0.4s` : `0s`)};
+  transform: ${(props) => (props.mounted ? `scale(2)` : `scale(1)`)};
+  opacity: ${(props) => (props.mounted ? 0 : 1)};
   animation-timing-function: ease-out;
 `
 // ______________________________________________________
 //
-const Container: React.FC<ContainerProps> = props => {
+const Container: React.FC<ContainerProps> = (props) => {
   const [mounted, setMounted] = React.useState(true)
   const [updatedAt] = React.useState(props.updatedAt)
   React.useEffect(() => {

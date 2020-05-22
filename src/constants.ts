@@ -6,5 +6,5 @@ export const route = {
   VOICE_WRITER: '/voice-writer',
   MOVIE_READER: '/movie-reader',
   MOVIE_WRITER: '/movie-writer',
-  ABOUT: '/about'
+  ABOUT: '/about',
 } as const

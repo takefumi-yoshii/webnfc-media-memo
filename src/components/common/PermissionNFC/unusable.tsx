@@ -7,7 +7,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <div className={props.className}>
     <h2 className="title">Not available Web NFC.</h2>
   </div>

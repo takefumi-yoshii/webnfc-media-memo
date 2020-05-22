@@ -27,7 +27,7 @@ const commonReducersFactory = (history: History<History.PoorMansUnknown>) => ({
   Interaction: Interaction(),
   PermissionState: PermissionState(),
   MediaRecorder: MediaRecorder(),
-  NFC: NFC()
+  NFC: NFC(),
 })
 const pageReducersFactory = () => ({
   TextReader: TextReader({ pathname: route.TEXT_READER }),
@@ -35,11 +35,11 @@ const pageReducersFactory = () => ({
   VoiceReader: VoiceReader({ pathname: route.VOICE_READER }),
   VoiceWriter: VoiceWriter({ pathname: route.VOICE_WRITER }),
   MovieReader: MovieReader({ pathname: route.MOVIE_READER }),
-  MovieWriter: MovieWriter({ pathname: route.MOVIE_WRITER })
+  MovieWriter: MovieWriter({ pathname: route.MOVIE_WRITER }),
 })
 // ______________________________________________________
 //
 export const reducersFactory = (history: History<History.PoorMansUnknown>) => ({
   ...commonReducersFactory(history),
-  ...pageReducersFactory()
+  ...pageReducersFactory(),
 })

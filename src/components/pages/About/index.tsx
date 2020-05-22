@@ -10,7 +10,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <main className={props.className}>
     <h2>About App</h2>
     <div className="writing">

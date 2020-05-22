@@ -9,7 +9,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <div className={props.className} onClick={props.onClick}>
     <EffectDetected />
     <div className="children">{props.children}</div>

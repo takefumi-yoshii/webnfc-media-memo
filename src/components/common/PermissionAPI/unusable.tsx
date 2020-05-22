@@ -7,7 +7,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <div className={props.className}>
     <h2 className="title">Not available Permission API.</h2>
   </div>

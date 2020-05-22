@@ -17,7 +17,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <nav className={props.className}>
     <ul>
       <li className="home">

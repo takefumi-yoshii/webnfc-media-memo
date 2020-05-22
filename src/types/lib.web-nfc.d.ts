@@ -10,11 +10,11 @@ interface Window {
   NDEFMEssage: NDEFMEssage
 }
 declare class NDEFMEssage {
-  constructor(messageInit: NDEFMessageInit);
+  constructor(messageInit: NDEFMessageInit)
   readonly records: NDEFRecord[]
 }
 declare interface NDEFMessageInit {
-  records: NDEFRecordInit[];
+  records: NDEFRecordInit[]
 }
 
 declare type NDEFRecordDataSource = string | BufferSource | NDEFMessageInit
@@ -23,7 +23,7 @@ interface Window {
   NDEFRecord: NDEFRecord
 }
 declare class NDEFRecord {
-  constructor(recordInit: NDEFRecordInit);
+  constructor(recordInit: NDEFRecordInit)
   readonly recordType: string
   readonly mediaType?: string
   readonly id?: string
@@ -47,15 +47,18 @@ interface Window {
   NDEFWriter: NDEFWriter
 }
 declare class NDEFWriter {
-  constructor();
-  write: (message: NDEFMessageSource, options?: NDEFWriteOptions) => Promise<void>
+  constructor()
+  write: (
+    message: NDEFMessageSource,
+    options?: NDEFWriteOptions
+  ) => Promise<void>
 }
 
 interface Window {
   NDEFReader: NDEFReader
 }
 declare class NDEFReader extends EventTarget {
-  constructor();
+  constructor()
   onerror: (error: any) => void
   onreading: (event: NDEFReadingEvent) => void
   scan: (options?: NDEFScanOptions) => Promise<void>
@@ -65,7 +68,7 @@ interface Window {
   NDEFReadingEvent: NDEFReadingEvent
 }
 declare class NDEFReadingEvent extends Event {
-  constructor(type: string, readingEventInitDict: NDEFReadingEventInit);
+  constructor(type: string, readingEventInitDict: NDEFReadingEventInit)
   serialNumber: string
   message: NDEFMEssage
 }

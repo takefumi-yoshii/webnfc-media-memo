@@ -14,7 +14,7 @@ function* watchDetectNFCReadingEvent() {
     )
     if (!(yield isLocated(route.VOICE_WRITER))) continue
     const {
-      VoiceWriter: { mode, blob }
+      VoiceWriter: { mode, blob },
     }: StoreState = yield select()
     if (blob === null || mode !== 'writing') continue
     const { serialNumber } = action.payload.event
@@ -24,6 +24,6 @@ function* watchDetectNFCReadingEvent() {
 }
 // ______________________________________________________
 //
-export default function*() {
+export default function* () {
   yield fork(watchDetectNFCReadingEvent)
 }

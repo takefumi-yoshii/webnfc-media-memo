@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const message = useSelector(state => state.VoiceReader.message)
-  const blob = useSelector(state => state.VoiceReader.blob)
+  const message = useSelector((state) => state.VoiceReader.message)
+  const blob = useSelector((state) => state.VoiceReader.blob)
   const [isPlaying, setIsPlaying] = React.useState(false)
   const audioRef = React.useRef<HTMLAudioElement | null>(null)
   const handlePlay = React.useCallback(() => {
@@ -24,7 +24,7 @@ const PageHooks = () => {
     isPlaying,
     handlePlay,
     handleEnded,
-    audioRef
+    audioRef,
   }
 }
 // ______________________________________________________

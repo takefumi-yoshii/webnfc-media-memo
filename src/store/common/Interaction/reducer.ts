@@ -10,7 +10,7 @@ type State = {
 //
 export const stateFactory = (injects?: Partial<State>): State => ({
   isTouched: false,
-  ...injects
+  ...injects,
 })
 // ______________________________________________________
 //

@@ -8,7 +8,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <RoundButton className={props.className}>Start App</RoundButton>
 )
 // ______________________________________________________

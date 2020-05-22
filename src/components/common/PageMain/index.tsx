@@ -10,7 +10,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <Centering className={props.className}>{props.children}</Centering>
 )
 // ______________________________________________________
@@ -19,7 +19,7 @@ const StyledComponent = styled(Component)`
   width: calc(100% - 74px);
   height: 100vh;
   overflow: hidden;
-  background-color: ${props => colors[props.backgroundColor]};
+  background-color: ${(props) => colors[props.backgroundColor]};
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 `
 // ______________________________________________________

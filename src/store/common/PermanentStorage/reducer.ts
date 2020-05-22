@@ -10,7 +10,7 @@ type State = {}
 // ______________________________________________________
 //
 export const stateFactory = (injects?: Partial<State>): State => ({
-  ...injects
+  ...injects,
 })
 // ______________________________________________________
 //

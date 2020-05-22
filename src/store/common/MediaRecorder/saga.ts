@@ -13,7 +13,7 @@ function getUserMedia(constraints: MediaStreamConstraints) {
 //
 function* setupMediaRecorder(store: Store<StoreState>) {
   const {
-    MediaRecorder: { mediaRecorder }
+    MediaRecorder: { mediaRecorder },
   }: StoreState = yield select()
   if (mediaRecorder !== null) {
     mediaRecorder.onstart = () => {
@@ -22,7 +22,7 @@ function* setupMediaRecorder(store: Store<StoreState>) {
     mediaRecorder.onstop = () => {
       store.dispatch(creators.onStopRecording())
     }
-    mediaRecorder.ondataavailable = event => {
+    mediaRecorder.ondataavailable = (event) => {
       const blob = new Blob([event.data], { type: 'video/webm' })
       store.dispatch(creators.onDataAvailable(blob))
     }
@@ -39,7 +39,7 @@ function* watchLocationChange() {
 // ______________________________________________________
 //
 function countDownStep() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => resolve(-1), 1000)
   })
 }
@@ -52,7 +52,7 @@ function* countdown() {
   while (count) {
     const [normal, abnormal] = yield race([
       call(countDownStep),
-      call(countDownCancel)
+      call(countDownCancel),
     ])
     if (abnormal !== undefined) break
     count += normal
@@ -71,7 +71,7 @@ function* watchStartRecording(store: Store<StoreState>) {
     yield fork(setupMediaRecorder, store)
     yield call(countdown)
     const {
-      MediaRecorder: { mediaRecorder }
+      MediaRecorder: { mediaRecorder },
     }: StoreState = yield select()
     if (mediaRecorder !== null) {
       mediaRecorder.start()
@@ -84,7 +84,7 @@ function* watchStopRecording() {
   while (true) {
     yield take(types.STOP_RECORDING)
     const {
-      MediaRecorder: { mediaRecorder }
+      MediaRecorder: { mediaRecorder },
     }: StoreState = yield select()
     if (mediaRecorder !== null) {
       if (mediaRecorder.state !== 'recording') return
@@ -95,7 +95,7 @@ function* watchStopRecording() {
 }
 // ______________________________________________________
 //
-export default function*(store: Store<StoreState>) {
+export default function* (store: Store<StoreState>) {
   yield fork(watchLocationChange)
   yield fork(watchStartRecording, store)
   yield fork(watchStopRecording)

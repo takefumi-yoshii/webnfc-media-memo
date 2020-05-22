@@ -12,11 +12,11 @@ async function setupNFCRead(store: Store<StoreState>) {
   reader.onerror = () => {
     store.dispatch(creators.onErrorRead(new Date()))
   }
-  reader.onreading = event => {
+  reader.onreading = (event) => {
     store.dispatch(
       creators.onReadingEvent({
         timeStamp: new Date(),
-        event
+        event,
       })
     )
   }
@@ -70,7 +70,7 @@ function* watchWriteNFCData(store: Store<StoreState>) {
       types.WRITE_DATA
     )
     const {
-      NFC: { writer }
+      NFC: { writer },
     }: StoreState = yield select()
     if (writer !== null) {
       yield put(creators.setIsWriting(true))
@@ -81,7 +81,7 @@ function* watchWriteNFCData(store: Store<StoreState>) {
 }
 // ______________________________________________________
 //
-export default function*(store: Store<StoreState>) {
+export default function* (store: Store<StoreState>) {
   yield fork(watchWriteNFCData, store)
   yield fork(watchPermissionChange, store)
 }

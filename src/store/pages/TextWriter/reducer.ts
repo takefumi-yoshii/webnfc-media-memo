@@ -13,7 +13,7 @@ type State = {
 export const stateFactory = (injects?: Partial<State>): State => ({
   pathname: '',
   located: false,
-  ...injects
+  ...injects,
 })
 // ______________________________________________________
 //

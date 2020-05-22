@@ -16,7 +16,7 @@ export const stateFactory = (injects?: Partial<State>): State => ({
   nfc: null,
   microphone: null,
   camera: null,
-  ...injects
+  ...injects,
 })
 // ______________________________________________________
 //

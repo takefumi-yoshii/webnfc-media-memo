@@ -16,14 +16,14 @@ export const stateFactory = (injects?: Partial<State>): State => ({
   mediaRecorder: null,
   isRecording: false,
   countDown: null,
-  ...injects
+  ...injects,
 })
 export const MediaRecorderOptionsFactory = (
   options?: MediaRecorderOptions
 ): MediaRecorderOptions => ({
   videoBitsPerSecond: 512000,
   mimeType: 'video/webm; codecs=vp9',
-  ...options
+  ...options,
 })
 // ______________________________________________________
 //
@@ -48,7 +48,7 @@ export default (initialState = stateFactory()): Reducer<State, Actions> => (
       return { ...state, isRecording: false }
     case types.DISPOSE_RECORDER:
       if (state.stream !== null) {
-        state.stream.getTracks().map(track => {
+        state.stream.getTracks().map((track) => {
           track.stop()
         })
       }

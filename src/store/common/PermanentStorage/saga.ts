@@ -49,12 +49,12 @@ function* watchRequestPUT(localforageStore: Localforage) {
 }
 // ______________________________________________________
 //
-export default function*() {
+export default function* () {
   const localforageStore = localforage.createInstance({
     driver: localforage.INDEXEDDB,
     name: 'webNFCMediaMemo',
     version: 1.0,
-    storeName: 'store'
+    storeName: 'store',
   })
   yield fork(watchRequestGET, localforageStore)
   yield fork(watchRequestPUT, localforageStore)

@@ -4,5 +4,5 @@ import { Mode } from './reducer'
 //
 export const setMode = (mode: Mode) => ({
   type: types.SET_MODE,
-  payload: { mode }
+  payload: { mode },
 })

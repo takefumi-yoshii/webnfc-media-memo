@@ -11,7 +11,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <h2 className={props.className}>
     <TypingText text={props.text} duration={props.duration} />
   </h2>

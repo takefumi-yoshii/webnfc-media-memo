@@ -12,7 +12,7 @@ type Props = {
 } & ContainerProps
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <div className={props.className}>
     <Body updatedAt={props.updatedAt} />
   </div>
@@ -28,8 +28,8 @@ const StyledComponent = styled(Component)`
 `
 // ______________________________________________________
 //
-const Container: React.FC<ContainerProps> = props => {
-  const updatedAt = useSelector(state => state.NFC.updatedAt)
+const Container: React.FC<ContainerProps> = (props) => {
+  const updatedAt = useSelector((state) => state.NFC.updatedAt)
   return <StyledComponent {...props} updatedAt={updatedAt} />
 }
 // ______________________________________________________

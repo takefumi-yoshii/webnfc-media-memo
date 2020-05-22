@@ -4,8 +4,8 @@ import { writeNfcData } from '../../../store/common/NFC/creators'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const updatedAt = useSelector(state => state.NFC.updatedAt)
-  const isWriting = useSelector(state => state.NFC.isWriting)
+  const updatedAt = useSelector((state) => state.NFC.updatedAt)
+  const isWriting = useSelector((state) => state.NFC.isWriting)
   const [inputValue, setValue] = React.useState('')
   const [isEditing, setIsEditing] = React.useState(false)
   const message = React.useMemo(() => {
@@ -46,7 +46,7 @@ const PageHooks = () => {
     inputValue,
     handleClickIcon,
     handleInputChange,
-    handleInputBlur
+    handleInputBlur,
   }
 }
 // ______________________________________________________

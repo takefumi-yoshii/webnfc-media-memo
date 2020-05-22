@@ -24,7 +24,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const App: React.FC<Props> = props => (
+const App: React.FC<Props> = (props) => (
   <Provider store={props.store}>
     <ConnectedRouter history={props.history}>
       <GlobalStyle />

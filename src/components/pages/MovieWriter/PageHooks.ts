@@ -2,15 +2,15 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   startRecording,
-  stopRecording
+  stopRecording,
 } from '../../../store/common/MediaRecorder/creators'
 import { setMode } from '../../../store/pages/MovieWriter/creators'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const mode = useSelector(state => state.MovieWriter.mode)
-  const stream = useSelector(state => state.MediaRecorder.stream)
-  const message = useSelector(state => state.MovieWriter.message)
+  const mode = useSelector((state) => state.MovieWriter.mode)
+  const stream = useSelector((state) => state.MediaRecorder.stream)
+  const message = useSelector((state) => state.MovieWriter.message)
   const isShowVideo = React.useMemo(() => {
     return mode === 'countdown' || mode === 'recording'
   }, [mode])
@@ -40,7 +40,7 @@ const PageHooks = () => {
     message,
     isShowVideo,
     videoRef,
-    handleClickCenter
+    handleClickCenter,
   }
 }
 // ______________________________________________________

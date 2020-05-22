@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux'
 import Unusable from './unusable'
 // ______________________________________________________
 //
-const Component: React.FC = props => {
-  const isTouched = useSelector(state => state.Interaction.isTouched)
+const Component: React.FC = (props) => {
+  const isTouched = useSelector((state) => state.Interaction.isTouched)
   if (isTouched === false) return <Unusable />
   return <>{props.children}</>
 }

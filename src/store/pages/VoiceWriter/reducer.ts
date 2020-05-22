@@ -23,7 +23,7 @@ export const stateFactory = (injects?: Partial<State>): State => ({
   blob: null,
   mode: 'ready',
   message: getMessage('ready'),
-  ...injects
+  ...injects,
 })
 // ______________________________________________________
 //

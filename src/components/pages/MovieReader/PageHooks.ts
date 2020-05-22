@@ -4,9 +4,9 @@ import { setMode } from '../../../store/pages/MovieReader/creators'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const mode = useSelector(state => state.MovieReader.mode)
-  const blob = useSelector(state => state.MovieReader.blob)
-  const message = useSelector(state => state.MovieReader.message)
+  const mode = useSelector((state) => state.MovieReader.mode)
+  const blob = useSelector((state) => state.MovieReader.blob)
+  const message = useSelector((state) => state.MovieReader.message)
   const videoRef = React.useRef<HTMLVideoElement | null>(null)
   const dispatch = useDispatch()
   const handlePlay = React.useCallback(() => {
@@ -28,7 +28,7 @@ const PageHooks = () => {
     message,
     videoRef,
     handlePlay,
-    handleEnded
+    handleEnded,
   }
 }
 // ______________________________________________________

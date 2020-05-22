@@ -7,5 +7,5 @@ export = {
   grape: '#8C4BCE',
   raspbery: '#BA42A0',
   black: '#252525',
-  gray: '#cfcfcf'
+  gray: '#cfcfcf',
 } as const

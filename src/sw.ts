@@ -1,7 +1,7 @@
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(self.skipWaiting())
   console.log('sw installed')
 })
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
   console.log('sw activated')
 })

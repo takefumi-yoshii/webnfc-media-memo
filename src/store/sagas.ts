@@ -30,7 +30,7 @@ function* PagesContext() {
 // ______________________________________________________
 //
 export default (store: Store<StoreState>) => {
-  return function*() {
+  return function* () {
     yield fork(CommonContext, store)
     yield fork(PagesContext)
   }

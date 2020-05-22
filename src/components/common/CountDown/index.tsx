@@ -11,7 +11,7 @@ type ContainerProps = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => {
+const Component: React.FC<Props> = (props) => {
   if (props.countDown === null) return null
   return <div className={props.className}>{props.countDown}</div>
 }
@@ -29,8 +29,8 @@ const StyledComponent = styled(Component)`
 `
 // ______________________________________________________
 //
-const Container: React.FC<ContainerProps> = props => {
-  const countDown = useSelector(state => state.MediaRecorder.countDown)
+const Container: React.FC<ContainerProps> = (props) => {
+  const countDown = useSelector((state) => state.MediaRecorder.countDown)
   return <StyledComponent {...props} countDown={countDown} />
 }
 // ______________________________________________________

@@ -1,7 +1,7 @@
 export function joinRecordsMessage(message: NDEFMEssage) {
   if (message.records.length === 0) return ''
   return message.records
-    .map(r => {
+    .map((r) => {
       const record = r as NDEFRecord
       switch (record.recordType) {
         case 'text':

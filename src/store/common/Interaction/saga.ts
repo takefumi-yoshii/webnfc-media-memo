@@ -3,7 +3,7 @@ import { StoreState } from '../../'
 import * as creators from './creators'
 // ______________________________________________________
 //
-export default function*(store: Store<StoreState>) {
+export default function* (store: Store<StoreState>) {
   window.addEventListener(
     'click',
     () => {

@@ -2,14 +2,14 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   startRecording,
-  stopRecording
+  stopRecording,
 } from '../../../store/common/MediaRecorder/creators'
 import { setMode } from '../../../store/pages/VoiceWriter/creators'
 // ______________________________________________________
 //
 const PageHooks = () => {
-  const mode = useSelector(state => state.VoiceWriter.mode)
-  const message = useSelector(state => state.VoiceWriter.message)
+  const mode = useSelector((state) => state.VoiceWriter.mode)
+  const message = useSelector((state) => state.VoiceWriter.message)
   const dispatch = useDispatch()
   const handleClickIcon = React.useCallback(() => {
     switch (mode) {
@@ -27,7 +27,7 @@ const PageHooks = () => {
   return {
     mode,
     message,
-    handleClickIcon
+    handleClickIcon,
   }
 }
 // ______________________________________________________

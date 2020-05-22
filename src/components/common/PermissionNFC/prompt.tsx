@@ -13,7 +13,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <div className={props.className}>
     <h2 className="title">Not granted NFC permission.</h2>
     <RoundButton className="button" onClick={props.handlePushButton}>

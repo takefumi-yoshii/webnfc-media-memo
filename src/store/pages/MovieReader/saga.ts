@@ -19,6 +19,6 @@ function* watchDetectNFCReadingEvent() {
 }
 // ______________________________________________________
 //
-export default function*() {
+export default function* () {
   yield fork(watchDetectNFCReadingEvent)
 }

@@ -17,7 +17,7 @@ export const stateFactory = (injects?: Partial<State>): State => ({
   pathname: '',
   located: false,
   text: null,
-  ...injects
+  ...injects,
 })
 // ______________________________________________________
 //

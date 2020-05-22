@@ -13,7 +13,7 @@ type Props = {
 }
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <main className={props.className}>
     <Centering>
       <Logo />

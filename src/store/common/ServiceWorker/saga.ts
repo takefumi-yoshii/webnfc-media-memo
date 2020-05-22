@@ -7,10 +7,10 @@ function checkLoaded() {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
           .register('../../../sw.ts')
-          .then(res => {
+          .then((res) => {
             resolve(res)
           })
-          .catch(err => {
+          .catch((err) => {
             reject(err)
           })
       }
@@ -19,6 +19,6 @@ function checkLoaded() {
 }
 // ______________________________________________________
 //
-export default function*() {
+export default function* () {
   yield call(checkLoaded)
 }

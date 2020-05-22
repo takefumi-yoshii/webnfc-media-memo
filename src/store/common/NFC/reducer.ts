@@ -22,7 +22,7 @@ export const stateFactory = (injects?: Partial<State>): State => ({
   isWriting: false,
   updatedAt: new Date(),
   failedAt: new Date(),
-  ...injects
+  ...injects,
 })
 // ______________________________________________________
 //

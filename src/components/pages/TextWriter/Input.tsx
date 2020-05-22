@@ -14,7 +14,7 @@ type Props = {
 } & ContainerProps
 // ______________________________________________________
 //
-const Component: React.FC<Props> = props => (
+const Component: React.FC<Props> = (props) => (
   <input
     className={props.className}
     type="text"
@@ -41,7 +41,7 @@ const StyledComponent = styled(Component)`
 `
 // ______________________________________________________
 //
-const Container: React.FC<ContainerProps> = props => {
+const Container: React.FC<ContainerProps> = (props) => {
   // Set focus when mounted.
   const inputRef = React.useRef<HTMLInputElement | null>(null)
   React.useEffect(() => {
